@@ -5,9 +5,9 @@
 In your terminal:
 1. Clone this repository
     type: git clone <this repo name>
-2. change directory to "augmented_img_API" and 
+2. change directory to "augmentation" and 
     type: docker-compose up
-3. Enter your web_container
+3. In new terminal, enter your web_container
     type: docker exec -it <container ID> bash
 4. Run migrations 
     type: python manage.py migrate
