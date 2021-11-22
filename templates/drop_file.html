@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'main.js' %}"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <title>Drop image</title>
+</head>
+<body>
+
+    <form action="{% url 'resize' %}" method="post" class="dropzone dz" id="main-dropzone">
+        {% csrf_token %}
+        <div class="fallback">
+            <input name="file" type="file" multiple />
+        </div>
+        <input name="width" type="number" placeholder="Width"/>
+        <input name="height" type="number" placeholder="Height"/>
+    </form>
+
+</body>
+</html>
