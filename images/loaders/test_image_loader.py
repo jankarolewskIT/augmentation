@@ -1,12 +1,12 @@
 import random
 import string
-
+import pathlib
 import requests
 
-from django.conf import settings
+
 
 """
-Module runs get_test_image function 50 times for test purposes 
+Module runs get_test_image function for test purposes 
 """
 
 def get_test_image(url: str) -> None:
@@ -19,11 +19,10 @@ def get_test_image(url: str) -> None:
     size = 10
     response = requests.get(url)
     file_name = ''.join(random.choices(string.ascii_uppercase + string.digits, k=size))
-    with open(f"{settings.BASE_DIR}/test_images/{file_name}.{random.choice(formats)}", "wb") as file:
+    with open(f"{pathlib.Path(__file__).parent.parent.parent}/test_images/{file_name}.{random.choice(formats)}", "wb") as file:
         file.write(response.content)
 
 
 if __name__ == '__main__':
-    for _ in range(50):
-        URL = f"https://picsum.photos/{random.randint(50, 500)}/{random.randint(50, 500)}"
-        get_test_image(URL)
+    URL = f"https://picsum.photos/{random.randint(50, 500)}/{random.randint(50, 500)}"
+    get_test_image(URL)

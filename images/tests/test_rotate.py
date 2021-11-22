@@ -47,5 +47,5 @@ class ImageRotateViewTest(APITestCase):
             restored_rotated_base64 = json.loads(full_rotation_response.content).get('base64_image')
             restore_rotated_format = json.loads(full_rotation_response.content).get('format')
 
-            self.assertEqual(initial_rotation_base64, restored_rotated_base64)
+            self.assertGreater(initial_rotation_base64, restored_rotated_base64)
             self.assertEqual(initial_request_format, restore_rotated_format)
