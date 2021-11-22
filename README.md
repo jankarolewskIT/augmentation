@@ -1,6 +1,6 @@
 # augmented_img_API
 
-<h1>To test my application fallow these instructions<h1/>
+<h1>To test my application fallow these instructions</h1>
 
 In your terminal:
 1. Clone this repository
